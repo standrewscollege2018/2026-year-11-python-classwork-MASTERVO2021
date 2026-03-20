@@ -9,24 +9,25 @@ an = 0
 #Getting their name
 print("What is your name?")
 name = input("")
-if name == "":
+while name.strip() == "":
     print("Name cannot be blank. Insert your name")
     name = input("")
 #Asking for questions
 print("There will be 10 questions")
 #Getting a valid number guess
 while ka == True:
-    guess = int((input("How many questions do you think you will get right (Put capital letters at the start of you answer)")))
+    print("How many questions do you think you will get right (Put capital letters at the start of you answer)")
+    guess = int(input(""))
     if guess > 10 or guess < 0:
-        print("That is not a number between 0 to 10. Grow a brain")
+        print("That is not a number between 0 to 10.")
     else:
         ka = False
 ka = True
 #Printing questions
 while ka == True:
     print(questions [qn])
-    q1 = input("")
-    if q1 == answers [an]:
+    q = input("")
+    if q == answers [an]:
         print("Correct")
         score += 1
     else:
