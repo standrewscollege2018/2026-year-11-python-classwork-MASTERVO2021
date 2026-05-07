@@ -9,20 +9,49 @@ DATABASE = 'students.db'
 connection = sqlite3.connect(DATABASE)
 cursor = connection.cursor()
 
-#ask user to search
-search = input("Enter search: ")
-search = f"%(search)%"
+#making the menu
+#options
+print("Select what type of query you want to run")
+print("1. Search for student by name")
+print("2. Search for student by tutor group")
+print("3. Search for student by year group")
+print("4. Quit")
 
-#set up and run a query
-cursor.execute("SELECT * FROM student WHERE first_name LIKE ? OR last_name LIKE ?"(search, search))
+#checking results
+#making a loop so it keeps running until they quit
+#rn stands for run program
+rp = True
+while rp == True:
+    #ka stands for keep asking
+    try:
+        select = int(input(""))
+        if select == 1 or select == 2 or select == 3 or select == 4:
+            if select == 4:
+            rp = False
+            print("Sucessfully quit")
+            if select == 1:
+                search = input("Enter search: ")
+                search = "%"+search+"%"
+                cursor.execute("SELECT * FROM student WHERE first_name LIKE ?", (search,))
+                results = cursor.fetchall()
+                for result in results:
+                    print(result[1])
+            if select == 2:
+                search = input("Enter search: ")
+                search = "%"+search+"%"
+                cursor.execute("SELECT * FROM student WHERE tutor_code LIKE ?", (search,))
+                results = cursor.fetchall()
+                for result in results:
+                    print(result[3])
+            if select == 3:
+                search = int(input("Enter search: "))
+                search = "%"+search+"%"
+                cursor.execute("SELECT * FROM student WHERE year_group LIKE ?", (search,))
+                results = cursor.fetchall()
+                for result in results:
+                    print(result[5])
+        else:
+            print("That is not an option")
+    except ValueError:
+        print("That is not an option")
 
-#get results
-all_results = cursor.fetchall()
-num_results = len(all_results)
-
-#loop through all_results and display everyone
-print(f"{'Name':20}" {'Tutor group'})
-print('='*25)
-for students in all_results:
-    #create a variable that contains the first and last names
-    name = f"{student[1] {student[2]}}"
