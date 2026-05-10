@@ -9,7 +9,6 @@ else:
     if Age >= 12:
         print("Take 2 tablets")
     else: 
-        print("Measure your weight")
         Weight = int(input("What is your weight?"))
         MG = Weight * 10
         print(f"Take {MG}mg")

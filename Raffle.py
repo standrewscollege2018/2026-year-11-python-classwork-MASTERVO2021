@@ -10,6 +10,5 @@ while Asking == True:
     amount + int(1)
     if Person == "end":
         Asking = False
-
 print(amount)
 

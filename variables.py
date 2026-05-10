@@ -1,8 +1,5 @@
 
-#Ask for password and store it as a variable
-password = input("What is your password?")
+Age = int(input("What is your age?"))
+Weight = int(input("What is your weight?"))
 
-if password == "Me":
-    print("Correct password")
-else:
-    print("Incorrect password")
+if Age < 17 and Weight < 49:
